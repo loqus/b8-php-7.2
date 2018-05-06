@@ -227,7 +227,7 @@ class b8
 		
 		for($i = 0; $i < $this->config['use_relevant']; $i++) {
 		
-			if($tmp = each($importance)) {
+			foreach($importance as $tmp){
 				
 				# Important tokens remain
 				
@@ -243,13 +243,6 @@ class b8
 				}
 				
 			}
-			
-			else {
-				# We have less words as we want to use, so we
-				# already use what we have and can break here
-				break;
-			}
-			
 		}
 		
 		# Calculate the spamminess of the text (thanks to Mr. Robinson ;-)
