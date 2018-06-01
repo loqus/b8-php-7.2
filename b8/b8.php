@@ -226,22 +226,15 @@ class b8
 		$relevant = array();
 		
 		for($i = 0; $i < $this->config['use_relevant']; $i++) {
-		
-			foreach($importance as $tmp){
-				
-				# Important tokens remain
-				
-				# If the token's rating is relevant enough, use it
-				
-				if(abs(0.5 - $rating[$tmp['key']]) > $this->config['min_dev']) {
+			foreach($importance as $key=>$tmp){
+				if(abs(0.5 - $rating[$key]) > $this->config['min_dev']) {
 				
 					# Tokens that appear more than once also count more than once
 					
-					for($x = 0, $l = $word_count[$tmp['key']]; $x < $l; $x++)
-						array_push($relevant, $rating[$tmp['key']]);
+					for($x = 0, $l = $word_count[$key]; $x < $l; $x++)
+						array_push($relevant, $rating[$key]);
 						
 				}
-				
 			}
 		}
 		
